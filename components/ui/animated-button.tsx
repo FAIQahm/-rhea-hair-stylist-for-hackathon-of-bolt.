@@ -22,7 +22,6 @@ export function AnimatedButton({
   onClick,
   type = 'button',
   href,
-  ...props
 }: AnimatedButtonProps) {
   const baseStyles = 'px-6 py-3 rounded-xl font-semibold text-base transition-all duration-200 flex items-center justify-center gap-2 inline-flex';
 
@@ -48,7 +47,7 @@ export function AnimatedButton({
       <motion.a
         {...commonProps}
         href={href}
-        onClick={onClick}
+        onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
       >
         {loading && <Loader2 className="h-5 w-5 animate-spin" />}
         {children}
@@ -62,7 +61,6 @@ export function AnimatedButton({
       disabled={disabled || loading}
       onClick={onClick}
       type={type}
-      {...props}
     >
       {loading && <Loader2 className="h-5 w-5 animate-spin" />}
       {children}
