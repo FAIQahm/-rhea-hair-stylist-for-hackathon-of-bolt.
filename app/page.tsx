@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { AnimatedButton } from '@/components/ui/animated-button';
@@ -9,30 +7,8 @@ import { GlassCard } from '@/components/ui/glass-card';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Sparkles, Wand2, Image, Shirt } from 'lucide-react';
-import { useAuth } from '@/lib/auth-provider';
 
 export default function Home() {
-  const { user, loading } = useAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!loading && user) {
-      router.push('/dashboard');
-    }
-  }, [user, loading, router]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-        >
-          <Sparkles className="h-12 w-12 text-rhea-purple" />
-        </motion.div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -95,7 +71,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Style Visualization</h3>
               <p className="text-gray-300">
-                Generate photorealistic previews of hairstyles and looks tailored specifically for you
+                Generate photorealistic previews of hairstyles and looks tailored specifically for you (Coming Soon)
               </p>
             </GlassCard>
           </motion.div>
@@ -111,7 +87,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Wardrobe Management</h3>
               <p className="text-gray-300">
-                Build your digital wardrobe and get AI-powered outfit recommendations for any occasion
+                Build your digital wardrobe and get AI-powered outfit recommendations for any occasion (Coming Soon)
               </p>
             </GlassCard>
           </motion.div>

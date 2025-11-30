@@ -37,7 +37,7 @@ export default function Header() {
           </Link>
         ))}
 
-        <Link href="/dashboard">
+        <Link href="/">
           <AnimatedButton variant="secondary" className="px-6">
             Dashboard
           </AnimatedButton>
